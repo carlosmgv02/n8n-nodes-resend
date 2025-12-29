@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./nodes/Resend/resend.svg" alt="Resend Logo" width="120" height="120">
+  <img src="https://raw.githubusercontent.com/carlosmgv02/n8n-nodes-resend/master/nodes/Resend/resend.png" alt="Resend Logo" width="120" height="120">
 
   # n8n-nodes-resend
 
