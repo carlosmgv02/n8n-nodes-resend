@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-resend",
+  "name": "@carlosmgv02/n8n-nodes-resend",
   "version": "1.0.0",
   "description": "n8n node for Resend - Email marketing and transactional emails",
   "keywords": [

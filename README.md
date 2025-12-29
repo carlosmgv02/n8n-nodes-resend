@@ -5,7 +5,7 @@
 
   **Modern Email API Integration for n8n**
 
-  [![npm version](https://img.shields.io/npm/v/n8n-nodes-resend.svg)](https://www.npmjs.com/package/n8n-nodes-resend)
+  [![npm version](https://img.shields.io/npm/v/@carlosmgv02/n8n-nodes-resend.svg)](https://www.npmjs.com/package/@carlosmgv02/n8n-nodes-resend)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![CI](https://github.com/carlosmgv02/n8n-nodes-resend/actions/workflows/ci.yml/badge.svg)](https://github.com/carlosmgv02/n8n-nodes-resend/actions/workflows/ci.yml)
 
@@ -26,13 +26,13 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 1. Go to **Settings > Community Nodes**
 2. Click **Install**
-3. Enter `n8n-nodes-resend` in the npm Package Name field
+3. Enter `@carlosmgv02/n8n-nodes-resend` in the npm Package Name field
 4. Click **Install**
 
 ### Manual Installation
 
 ```bash
-npm install n8n-nodes-resend
+npm install @carlosmgv02/n8n-nodes-resend
 ```
 
 ## Configuration
