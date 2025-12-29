@@ -182,7 +182,8 @@ export const topicsResource: ResendResourceModule = {
 					operation: ['create'],
 				},
 			},
-			description: 'Default subscription preference for new contacts. Cannot be changed after creation.',
+			description:
+				'Default subscription preference for new contacts. Cannot be changed after creation.',
 		},
 		{
 			displayName: 'Description',

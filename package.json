@@ -9,7 +9,10 @@
     "email",
     "marketing",
     "broadcasts",
-    "transactional"
+    "transactional",
+    "webhook",
+    "trigger",
+    "automation"
   ],
   "license": "MIT",
   "homepage": "https://github.com/carlosmgv02/n8n-nodes-resend",
@@ -21,6 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/carlosmgv02/n8n-nodes-resend.git"
   },
+  "bugs": {
+    "url": "https://github.com/carlosmgv02/n8n-nodes-resend/issues"
+  },
   "main": "index.js",
   "scripts": {
     "build": "tsc && gulp build:icons",
@@ -28,7 +34,7 @@
     "format": "prettier nodes credentials --write",
     "lint": "eslint 'nodes/**/*.ts' 'credentials/**/*.ts' --ext .ts",
     "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "npm run build && npm run lint"
   },
   "files": [
     "dist"
@@ -39,7 +45,8 @@
       "dist/credentials/ResendApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/Resend/Resend.node.js"
+      "dist/nodes/Resend/Resend.node.js",
+      "dist/nodes/Resend/ResendTrigger.node.js"
     ]
   },
   "devDependencies": {

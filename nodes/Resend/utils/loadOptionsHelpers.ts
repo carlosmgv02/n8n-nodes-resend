@@ -1,24 +1,15 @@
-import {
-	ILoadOptionsFunctions,
-	INodePropertyOptions,
-} from 'n8n-workflow';
+import { ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
 import { Segment, Topic, Template, PaginatedResponse } from '../types';
 
 /**
  * Load segments for dropdown selection
  */
-export async function getSegments(
-	this: ILoadOptionsFunctions,
-): Promise<INodePropertyOptions[]> {
+export async function getSegments(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	try {
-		const response = await this.helpers.httpRequestWithAuthentication.call(
-			this,
-			'resendApi',
-			{
-				method: 'GET',
-				url: 'https://api.resend.com/segments',
-			},
-		) as PaginatedResponse<Segment>;
+		const response = (await this.helpers.httpRequestWithAuthentication.call(this, 'resendApi', {
+			method: 'GET',
+			url: 'https://api.resend.com/segments',
+		})) as PaginatedResponse<Segment>;
 
 		const segments = response.data || [];
 		return segments.map((segment: Segment) => ({
@@ -39,18 +30,12 @@ export async function getSegments(
 /**
  * Load topics for dropdown selection
  */
-export async function getTopics(
-	this: ILoadOptionsFunctions,
-): Promise<INodePropertyOptions[]> {
+export async function getTopics(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	try {
-		const response = await this.helpers.httpRequestWithAuthentication.call(
-			this,
-			'resendApi',
-			{
-				method: 'GET',
-				url: 'https://api.resend.com/topics',
-			},
-		) as PaginatedResponse<Topic>;
+		const response = (await this.helpers.httpRequestWithAuthentication.call(this, 'resendApi', {
+			method: 'GET',
+			url: 'https://api.resend.com/topics',
+		})) as PaginatedResponse<Topic>;
 
 		const topics = response.data || [];
 		return [
@@ -78,18 +63,12 @@ export async function getTopics(
 /**
  * Load templates for dropdown selection
  */
-export async function getTemplates(
-	this: ILoadOptionsFunctions,
-): Promise<INodePropertyOptions[]> {
+export async function getTemplates(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	try {
-		const response = await this.helpers.httpRequestWithAuthentication.call(
-			this,
-			'resendApi',
-			{
-				method: 'GET',
-				url: 'https://api.resend.com/templates',
-			},
-		) as PaginatedResponse<Template>;
+		const response = (await this.helpers.httpRequestWithAuthentication.call(this, 'resendApi', {
+			method: 'GET',
+			url: 'https://api.resend.com/templates',
+		})) as PaginatedResponse<Template>;
 
 		const templates = response.data || [];
 		// Only show published templates
@@ -125,14 +104,10 @@ export async function getTemplateVariables(
 			return [];
 		}
 
-		const template = await this.helpers.httpRequestWithAuthentication.call(
-			this,
-			'resendApi',
-			{
-				method: 'GET',
-				url: `https://api.resend.com/templates/${templateId}`,
-			},
-		) as Template;
+		const template = (await this.helpers.httpRequestWithAuthentication.call(this, 'resendApi', {
+			method: 'GET',
+			url: `https://api.resend.com/templates/${templateId}`,
+		})) as Template;
 
 		if (!template.variables || template.variables.length === 0) {
 			return [
@@ -144,7 +119,9 @@ export async function getTemplateVariables(
 		}
 
 		return template.variables.map((variable) => ({
-			name: `${variable.key}${variable.fallback_value ? ` (default: ${variable.fallback_value})` : ''}`,
+			name: `${variable.key}${
+				variable.fallback_value ? ` (default: ${variable.fallback_value})` : ''
+			}`,
 			value: variable.key,
 			description: `Type: ${variable.type}`,
 		}));

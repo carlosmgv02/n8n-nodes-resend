@@ -1,8 +1,4 @@
-import {
-	IExecuteSingleFunctions,
-	IHttpRequestOptions,
-	IDataObject,
-} from 'n8n-workflow';
+import { IExecuteSingleFunctions, IHttpRequestOptions, IDataObject } from 'n8n-workflow';
 import { PAGINATION } from '../constants';
 import { processTemplateVariables } from './templateHelpers';
 

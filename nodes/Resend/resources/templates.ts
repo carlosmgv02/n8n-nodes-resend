@@ -1,8 +1,4 @@
-import {
-	INodeProperties,
-	IExecuteSingleFunctions,
-	IHttpRequestOptions,
-} from 'n8n-workflow';
+import { INodeProperties, IExecuteSingleFunctions, IHttpRequestOptions } from 'n8n-workflow';
 import { ResendResourceModule } from '../types';
 import { buildIdField, buildPaginationFields } from '../utils/commonFields';
 import { preparePaginatedRequest } from '../utils/requestBuilders';

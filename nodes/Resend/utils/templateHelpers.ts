@@ -15,7 +15,8 @@ export function processTemplateVariables(variablesData: any): Record<string, str
 		if (variable.key && variable.value !== undefined) {
 			// Try to parse as number if possible
 			const numValue = Number(variable.value);
-			variables[variable.key] = isNaN(numValue) || variable.value === '' ? variable.value : numValue;
+			variables[variable.key] =
+				isNaN(numValue) || variable.value === '' ? variable.value : numValue;
 		}
 	}
 
@@ -25,7 +26,9 @@ export function processTemplateVariables(variablesData: any): Record<string, str
 /**
  * Convert fixedCollection tags to API format
  */
-export function processEmailTags(tagsData: any): Array<{ name: string; value: string }> | undefined {
+export function processEmailTags(
+	tagsData: any,
+): Array<{ name: string; value: string }> | undefined {
 	if (!tagsData?.tag?.length) {
 		return undefined;
 	}
@@ -43,7 +46,9 @@ export function processEmailTags(tagsData: any): Array<{ name: string; value: st
 /**
  * Convert contact properties from fixedCollection to API format
  */
-export function processContactProperties(propertiesData: any): Record<string, string | number> | undefined {
+export function processContactProperties(
+	propertiesData: any,
+): Record<string, string | number> | undefined {
 	if (!propertiesData?.property?.length) {
 		return undefined;
 	}

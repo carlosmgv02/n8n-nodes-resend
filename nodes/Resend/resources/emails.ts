@@ -12,11 +12,7 @@ import {
 	buildEmailArrayField,
 } from '../utils/fieldBuilders';
 import { buildIdField, buildPaginationFields } from '../utils/commonFields';
-import {
-	processAttachments,
-	splitEmails,
-	keyValuePairsToObject,
-} from '../utils/attachmentHelpers';
+import { processAttachments, splitEmails, keyValuePairsToObject } from '../utils/attachmentHelpers';
 import { processTemplateVariables, processEmailTags } from '../utils/templateHelpers';
 import { preparePaginatedRequest, processTemplateOrHtmlContent } from '../utils/requestBuilders';
 import { BATCH_EMAIL } from '../constants';
@@ -87,17 +83,11 @@ async function prepareSendEmailRequest(
 
 	// Validation
 	if (!body.from || !body.to || body.to.length === 0) {
-		throw new NodeOperationError(
-			this.getNode(),
-			'From and To fields are required',
-		);
+		throw new NodeOperationError(this.getNode(), 'From and To fields are required');
 	}
 
 	if (!body.template && !body.subject) {
-		throw new NodeOperationError(
-			this.getNode(),
-			'Subject is required when not using a template',
-		);
+		throw new NodeOperationError(this.getNode(), 'Subject is required when not using a template');
 	}
 
 	requestOptions.body = body;
@@ -112,10 +102,7 @@ async function prepareSendBatchRequest(
 	const batchEmailsData = this.getNodeParameter('batchEmails', {}) as any;
 
 	if (!batchEmailsData?.email || batchEmailsData.email.length === 0) {
-		throw new NodeOperationError(
-			this.getNode(),
-			'At least one email is required for batch send',
-		);
+		throw new NodeOperationError(this.getNode(), 'At least one email is required for batch send');
 	}
 
 	const emails = [];
@@ -270,7 +257,14 @@ export const emailsResource: ResendResourceModule = {
 			description: 'Sender email address. Use format: "Name &lt;email@domain.com&gt;"',
 			placeholder: 'Acme <onboarding@resend.dev>',
 		},
-		buildEmailArrayField('To', 'to', 'emails', ['send'], true, 'Comma-separated list of recipient email addresses'),
+		buildEmailArrayField(
+			'To',
+			'to',
+			'emails',
+			['send'],
+			true,
+			'Comma-separated list of recipient email addresses',
+		),
 		{
 			displayName: 'Use Template',
 			name: 'useTemplate',
@@ -353,9 +347,30 @@ export const emailsResource: ResendResourceModule = {
 			},
 			description: 'Plain text version of the email (optional)',
 		},
-		buildEmailArrayField('CC', 'cc', 'emails', ['send'], false, 'Carbon copy recipients (comma-separated)'),
-		buildEmailArrayField('BCC', 'bcc', 'emails', ['send'], false, 'Blind carbon copy recipients (comma-separated)'),
-		buildEmailArrayField('Reply To', 'replyTo', 'emails', ['send'], false, 'Reply-to email addresses (comma-separated)'),
+		buildEmailArrayField(
+			'CC',
+			'cc',
+			'emails',
+			['send'],
+			false,
+			'Carbon copy recipients (comma-separated)',
+		),
+		buildEmailArrayField(
+			'BCC',
+			'bcc',
+			'emails',
+			['send'],
+			false,
+			'Blind carbon copy recipients (comma-separated)',
+		),
+		buildEmailArrayField(
+			'Reply To',
+			'replyTo',
+			'emails',
+			['send'],
+			false,
+			'Reply-to email addresses (comma-separated)',
+		),
 		{
 			displayName: 'Topic',
 			name: 'topicId',
@@ -373,8 +388,22 @@ export const emailsResource: ResendResourceModule = {
 			description: 'Topic for email preferences and unsubscribe management',
 		},
 		buildAttachmentField('emails', ['send']),
-		buildKeyValuePairField('Headers', 'headers', 'emails', ['send'], 'Custom headers for the email', 'header'),
-		buildKeyValuePairField('Tags', 'tags', 'emails', ['send'], 'Tags for tracking and categorization', 'tag'),
+		buildKeyValuePairField(
+			'Headers',
+			'headers',
+			'emails',
+			['send'],
+			'Custom headers for the email',
+			'header',
+		),
+		buildKeyValuePairField(
+			'Tags',
+			'tags',
+			'emails',
+			['send'],
+			'Tags for tracking and categorization',
+			'tag',
+		),
 		{
 			displayName: 'Scheduled At',
 			name: 'scheduledAt',
@@ -386,7 +415,8 @@ export const emailsResource: ResendResourceModule = {
 					operation: ['send'],
 				},
 			},
-			description: 'Schedule email for later. Use natural language (e.g., "in 1 hour") or ISO 8601 format.',
+			description:
+				'Schedule email for later. Use natural language (e.g., "in 1 hour") or ISO 8601 format.',
 			placeholder: 'in 1 hour',
 		},
 

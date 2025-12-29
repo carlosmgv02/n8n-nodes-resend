@@ -2,7 +2,9 @@ import { INodeProperties } from 'n8n-workflow';
 import { ResendResource } from '../types';
 import { PAGINATION } from '../constants';
 
-export function buildResourceField(resources: { name: string; value: ResendResource }[]): INodeProperties {
+export function buildResourceField(
+	resources: { name: string; value: ResendResource }[],
+): INodeProperties {
 	return {
 		displayName: 'Resource',
 		name: 'resource',

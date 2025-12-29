@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-12-29
 
 ### Added
+- **Resend Trigger Node** - React to webhook events from Resend
+  - Email events: sent, delivered, opened, clicked, bounced, complained, delivery_delayed
+  - Contact events: created, updated, deleted
+  - Domain events: created, updated, deleted
+  - Secure webhook signature verification using Svix
+  - Configurable event filtering
 - Complete Resend API integration for n8n
 - Support for 6 resources: Email, Broadcast, Contact, Segment, Topic, Template
 - 31 operations across all resources

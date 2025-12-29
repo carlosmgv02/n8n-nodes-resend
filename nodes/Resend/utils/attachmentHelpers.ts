@@ -1,7 +1,4 @@
-import {
-	IExecuteSingleFunctions,
-	NodeOperationError,
-} from 'n8n-workflow';
+import { IExecuteSingleFunctions, NodeOperationError } from 'n8n-workflow';
 import { ResendAttachment } from '../types';
 import { ATTACHMENT } from '../constants';
 
@@ -30,9 +27,7 @@ export async function processAttachments(
 
 				if (binaryData) {
 					// Convert binary data to base64
-					const buffer = await this.helpers.getBinaryDataBuffer(
-						attachment.binaryPropertyName,
-					);
+					const buffer = await this.helpers.getBinaryDataBuffer(attachment.binaryPropertyName);
 					processedAttachment.content = buffer.toString('base64');
 					totalSize += buffer.length;
 
@@ -70,7 +65,9 @@ export async function processAttachments(
 			if (totalSize > MAX_SIZE) {
 				throw new NodeOperationError(
 					this.getNode(),
-					`Total attachment size (${(totalSize / 1024 / 1024).toFixed(2)}MB) exceeds the ${ATTACHMENT.MAX_SIZE_MB}MB limit`,
+					`Total attachment size (${(totalSize / 1024 / 1024).toFixed(2)}MB) exceeds the ${
+						ATTACHMENT.MAX_SIZE_MB
+					}MB limit`,
 				);
 			}
 
@@ -98,7 +95,10 @@ export function splitEmails(emailString: string): string[] {
 /**
  * Convert fixedCollection key-value pairs to object
  */
-export function keyValuePairsToObject(data: any, itemName: string = 'pair'): Record<string, string> | undefined {
+export function keyValuePairsToObject(
+	data: any,
+	itemName: string = 'pair',
+): Record<string, string> | undefined {
 	if (!data?.[itemName]?.length) {
 		return undefined;
 	}

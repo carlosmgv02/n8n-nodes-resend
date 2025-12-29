@@ -10,13 +10,7 @@ export type ResendResource =
 	| 'templates';
 
 // Email operations
-export type EmailOperation =
-	| 'send'
-	| 'sendBatch'
-	| 'list'
-	| 'get'
-	| 'cancel'
-	| 'update';
+export type EmailOperation = 'send' | 'sendBatch' | 'list' | 'get' | 'cancel' | 'update';
 
 // Contact operations
 export type ContactOperation =
@@ -29,34 +23,16 @@ export type ContactOperation =
 	| 'removeFromSegment';
 
 // Segment operations
-export type SegmentOperation =
-	| 'create'
-	| 'list'
-	| 'get'
-	| 'update'
-	| 'delete';
+export type SegmentOperation = 'create' | 'list' | 'get' | 'update' | 'delete';
 
 // Broadcast operations
-export type BroadcastOperation =
-	| 'create'
-	| 'list'
-	| 'get'
-	| 'update'
-	| 'send'
-	| 'delete';
+export type BroadcastOperation = 'create' | 'list' | 'get' | 'update' | 'send' | 'delete';
 
 // Topic operations
-export type TopicOperation =
-	| 'create'
-	| 'list'
-	| 'get'
-	| 'update'
-	| 'delete';
+export type TopicOperation = 'create' | 'list' | 'get' | 'update' | 'delete';
 
 // Template operations (read-only)
-export type TemplateOperation =
-	| 'list'
-	| 'get';
+export type TemplateOperation = 'list' | 'get';
 
 // Attachment interface
 export interface ResendAttachment {

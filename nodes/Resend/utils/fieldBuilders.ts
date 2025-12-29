@@ -53,7 +53,8 @@ export function buildAttachmentField(
 						type: 'string',
 						default: '',
 						placeholder: 'logo-image',
-						description: 'For inline images - reference in HTML as &lt;img src="cid:logo-image"&gt;',
+						description:
+							'For inline images - reference in HTML as &lt;img src="cid:logo-image"&gt;',
 					},
 				],
 			},

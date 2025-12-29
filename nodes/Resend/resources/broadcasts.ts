@@ -49,10 +49,7 @@ async function prepareBroadcastRequest(
 
 	// Validation
 	if (!body.from || !body.subject) {
-		throw new NodeOperationError(
-			this.getNode(),
-			'From and Subject are required',
-		);
+		throw new NodeOperationError(this.getNode(), 'From and Subject are required');
 	}
 
 	requestOptions.body = body;
@@ -282,8 +279,10 @@ export const broadcastsResource: ResendResourceModule = {
 					useTemplate: [false],
 				},
 			},
-			description: 'HTML version of the email body. Use {{{FIRST_NAME|there}}} for variables and {{{RESEND_UNSUBSCRIBE_URL}}} for unsubscribe link.',
-			placeholder: '<p>Hi {{{FIRST_NAME|there}}}, you can unsubscribe here: {{{RESEND_UNSUBSCRIBE_URL}}}</p>',
+			description:
+				'HTML version of the email body. Use {{{FIRST_NAME|there}}} for variables and {{{RESEND_UNSUBSCRIBE_URL}}} for unsubscribe link.',
+			placeholder:
+				'<p>Hi {{{FIRST_NAME|there}}}, you can unsubscribe here: {{{RESEND_UNSUBSCRIBE_URL}}}</p>',
 		},
 		{
 			displayName: 'Text',
@@ -318,7 +317,14 @@ export const broadcastsResource: ResendResourceModule = {
 			},
 			description: 'Topic to scope this broadcast to (optional)',
 		},
-		buildEmailArrayField('Reply To', 'replyTo', 'broadcasts', ['create', 'update'], false, 'Reply-to email addresses (comma-separated)'),
+		buildEmailArrayField(
+			'Reply To',
+			'replyTo',
+			'broadcasts',
+			['create', 'update'],
+			false,
+			'Reply-to email addresses (comma-separated)',
+		),
 
 		// ================== SEND BROADCAST FIELDS ==================
 		{
@@ -346,12 +352,18 @@ export const broadcastsResource: ResendResourceModule = {
 					operation: ['send'],
 				},
 			},
-			description: 'Schedule broadcast for later. Use natural language (e.g., "in 1 hour") or ISO 8601 format. Leave empty to send immediately.',
+			description:
+				'Schedule broadcast for later. Use natural language (e.g., "in 1 hour") or ISO 8601 format. Leave empty to send immediately.',
 			placeholder: 'in 1 hour',
 		},
 
 		// ================== GET/UPDATE/DELETE BROADCAST FIELDS ==================
-		buildIdField('broadcasts', ['get', 'update', 'delete'], 'Broadcast ID', 'The ID of the broadcast'),
+		buildIdField(
+			'broadcasts',
+			['get', 'update', 'delete'],
+			'Broadcast ID',
+			'The ID of the broadcast',
+		),
 
 		// ================== LIST BROADCASTS FIELDS ==================
 		...buildPaginationFields('broadcasts', 'list'),
