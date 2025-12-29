@@ -74,12 +74,12 @@ jobs:
 
       - name: Create GitHub Release
         if: steps.version_check.outputs.should_publish == 'true'
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ steps.version_check.outputs.current_version }}
-          release_name: Release v${{ steps.version_check.outputs.current_version }}
+          name: Release v${{ steps.version_check.outputs.current_version }}
           body: |
             ## Changes in v${{ steps.version_check.outputs.current_version }}
 

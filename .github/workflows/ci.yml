@@ -102,4 +102,4 @@ jobs:
           echo "✓ Constants properly used"
 
       - name: TypeScript strict check
-        run: npx tsc --noEmit --strict || echo "Note: Strict mode has warnings"
+        run: npx tsc --noEmit --strict || echo "Note - Strict mode has warnings"
