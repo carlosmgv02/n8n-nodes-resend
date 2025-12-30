@@ -5,7 +5,7 @@ This document explains how to configure the `NPM_TOKEN` secret required for auto
 ## Prerequisites
 
 1. npm account at https://www.npmjs.com
-2. Access to the npm package `n8n-nodes-resend` (package owner or collaborator)
+2. Access to the npm package `n8n-nodes-api-resend` (package owner or collaborator)
 3. Admin access to this GitHub repository
 
 ## Step 1: Create npm Access Token
@@ -16,7 +16,7 @@ This document explains how to configure the `NPM_TOKEN` secret required for auto
 4. Select token type:
    - **Automation** (Recommended) - For CI/CD systems
    - Or **Publish** - If Automation is not available
-5. Give it a descriptive name: `github-actions-n8n-nodes-resend`
+5. Give it a descriptive name: `github-actions-n8n-nodes-api-resend`
 6. Click **Generate Token**
 7. **IMPORTANT:** Copy the token immediately - you won't see it again!
 
@@ -51,7 +51,7 @@ To test without actually publishing:
 
 If everything is configured correctly, you'll see:
 ```
-✓ Published to npm: n8n-nodes-resend@1.0.0-test.1
+✓ Published to npm: n8n-nodes-api-resend@1.0.0-test.1
 ```
 
 ## Troubleshooting
@@ -64,7 +64,7 @@ If everything is configured correctly, you'll see:
 
 ### Error: "You do not have permission to publish"
 
-**Solution:** Your npm account doesn't have publish rights to `n8n-nodes-resend`.
+**Solution:** Your npm account doesn't have publish rights to `n8n-nodes-api-resend`.
 - Verify you're logged into the correct npm account
 - Ask the package owner to add you as a collaborator
 - Check the token has "Publish" permissions
