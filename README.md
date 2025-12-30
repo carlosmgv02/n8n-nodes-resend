@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/carlosmgv02/n8n-nodes-api-resend/master/nodes/Resend/resend.png" alt="Resend Logo" width="120" height="120">
 
-  # n8n-nodes-resend
+  # n8n-nodes-api-resend
 
   **Modern Email API Integration for n8n**
 

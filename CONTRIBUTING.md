@@ -1,4 +1,4 @@
-# Contributing to n8n-nodes-resend
+# Contributing to n8n-nodes-api-resend
 
 Thank you for your interest in contributing! This document provides guidelines for contributing to this project.
 
@@ -7,7 +7,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 1. Clone the repository:
    ```bash
    git clone https://github.com/carlosmgv02/n8n-nodes-api-resend.git
-   cd n8n-nodes-resend
+   cd n8n-nodes-api-resend
    ```
 
 2. Install dependencies:
@@ -142,7 +142,7 @@ The repository owner needs to configure these secrets in GitHub:
 ## Project Structure
 
 ```
-n8n-nodes-resend/
+n8n-nodes-api-resend/
 ├── .github/workflows/     # CI/CD pipelines
 │   ├── ci.yml            # PR checks
 │   └── release.yml       # npm publishing
