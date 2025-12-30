@@ -275,7 +275,7 @@ export const contactsResource: ResendResourceModule = {
 		{
 			displayName: 'Segment',
 			name: 'segmentId',
-			type: 'options',
+			type: 'string',
 			typeOptions: {
 				loadOptionsMethod: 'getSegments',
 			},
@@ -287,7 +287,8 @@ export const contactsResource: ResendResourceModule = {
 					operation: ['addToSegment', 'removeFromSegment'],
 				},
 			},
-			description: 'The segment to add/remove the contact to/from',
+			description: 'The segment to add/remove the contact to/from. Choose from the dropdown or use an expression.',
+			hint: 'Toggle to "Expression" to use a segment ID from a previous node',
 		},
 
 		// ================== LIST CONTACTS FIELDS ==================

@@ -175,7 +175,7 @@ export const broadcastsResource: ResendResourceModule = {
 		{
 			displayName: 'Segment',
 			name: 'segmentId',
-			type: 'options',
+			type: 'string',
 			typeOptions: {
 				loadOptionsMethod: 'getSegments',
 			},
@@ -187,7 +187,8 @@ export const broadcastsResource: ResendResourceModule = {
 					operation: ['create', 'update'],
 				},
 			},
-			description: 'The segment to send this broadcast to',
+			description: 'The segment to send this broadcast to. Choose from the dropdown or use an expression to pass the segment ID.',
+			hint: 'Toggle to "Expression" to use output from a previous "Create Segment" node',
 		},
 		{
 			displayName: 'From',
@@ -248,7 +249,7 @@ export const broadcastsResource: ResendResourceModule = {
 		{
 			displayName: 'Template',
 			name: 'templateId',
-			type: 'options',
+			type: 'string',
 			typeOptions: {
 				loadOptionsMethod: 'getTemplates',
 			},
@@ -261,7 +262,8 @@ export const broadcastsResource: ResendResourceModule = {
 					useTemplate: [true],
 				},
 			},
-			description: 'The template to use for this broadcast',
+			description: 'The template to use for this broadcast. Choose from the dropdown or use an expression.',
+			hint: 'Toggle to "Expression" to use a template ID from a previous node',
 		},
 		buildTemplateVariablesField('broadcasts', ['create', 'update']),
 		{
@@ -304,7 +306,7 @@ export const broadcastsResource: ResendResourceModule = {
 		{
 			displayName: 'Topic',
 			name: 'topicId',
-			type: 'options',
+			type: 'string',
 			typeOptions: {
 				loadOptionsMethod: 'getTopics',
 			},
@@ -315,7 +317,8 @@ export const broadcastsResource: ResendResourceModule = {
 					operation: ['create', 'update'],
 				},
 			},
-			description: 'Topic to scope this broadcast to (optional)',
+			description: 'Topic to scope this broadcast to (optional). Choose from the dropdown or use an expression.',
+			hint: 'Toggle to "Expression" to use a topic ID from a previous node',
 		},
 		buildEmailArrayField(
 			'Reply To',

@@ -281,7 +281,7 @@ export const emailsResource: ResendResourceModule = {
 		{
 			displayName: 'Template',
 			name: 'templateId',
-			type: 'options',
+			type: 'string',
 			typeOptions: {
 				loadOptionsMethod: 'getTemplates',
 			},
@@ -294,7 +294,8 @@ export const emailsResource: ResendResourceModule = {
 					useTemplate: [true],
 				},
 			},
-			description: 'The template to use for this email',
+			description: 'The template to use for this email. Choose from the dropdown or use an expression.',
+			hint: 'Toggle to "Expression" to use a template ID from a previous node',
 		},
 		buildTemplateVariablesField('emails', ['send']),
 		{
@@ -374,7 +375,7 @@ export const emailsResource: ResendResourceModule = {
 		{
 			displayName: 'Topic',
 			name: 'topicId',
-			type: 'options',
+			type: 'string',
 			typeOptions: {
 				loadOptionsMethod: 'getTopics',
 			},
@@ -385,7 +386,8 @@ export const emailsResource: ResendResourceModule = {
 					operation: ['send'],
 				},
 			},
-			description: 'Topic for email preferences and unsubscribe management',
+			description: 'Topic for email preferences and unsubscribe management. Choose from the dropdown or use an expression.',
+			hint: 'Toggle to "Expression" to use a topic ID from a previous node',
 		},
 		buildAttachmentField('emails', ['send']),
 		buildKeyValuePairField(
