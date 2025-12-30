@@ -54,7 +54,7 @@ jobs:
           echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
           # Check if this version is already published
-          if npm view n8n-resend@$CURRENT_VERSION version 2>/dev/null; then
+          if npm view n8n-nodes-api-resend@$CURRENT_VERSION version 2>/dev/null; then
             echo "should_publish=false" >> $GITHUB_OUTPUT
             echo "Version $CURRENT_VERSION already published to npm"
           else
@@ -86,11 +86,11 @@ jobs:
           body: |
             ## Changes in v${{ steps.version_check.outputs.current_version }}
 
-            Published to npm: https://www.npmjs.com/package/n8n-resend/v/${{ steps.version_check.outputs.current_version }}
+            Published to npm: https://www.npmjs.com/package/n8n-nodes-api-resend/v/${{ steps.version_check.outputs.current_version }}
 
             ### Installation
             ```bash
-            npm install n8n-resend
+            npm install n8n-nodes-api-resend
             ```
 
             See the [CHANGELOG](https://github.com/carlosmgv02/n8n-nodes-resend/blob/master/CHANGELOG.md) for details.
